@@ -21,8 +21,27 @@
     .dark-mode footer {
       background-color: #1e293b;
     }
-    .dark-mode a {
-      color: #93c5fd;
+    .dark-mode a,
+    .dark-mode h2,
+    .dark-mode h3,
+    .dark-mode p,
+    .dark-mode input,
+    .dark-mode textarea {
+      color: #f1f5f9 !important;
+    }
+    .dark-mode input,
+    .dark-mode textarea {
+      background-color: #334155;
+      border-color: #475569;
+    }
+    @media (max-width: 768px) {
+      .floating-icons {
+        top: auto;
+        bottom: 20px;
+        left: 10px;
+        transform: none;
+        flex-direction: column;
+      }
     }
   </style>
   <script defer>
@@ -63,9 +82,9 @@
 </head>
 <body class="bg-white text-gray-800">
   <!-- Floating Social Icons -->
-  <div class="fixed top-1/2 left-0 transform -translate-y-1/2 space-y-2 z-50">
-    <a href="https://www.tiktok.com/@exceleasyyy" target="_blank" class="block bg-pink-500 text-white p-2 rounded-r hover:bg-pink-600 transition">TikTok</a>
-    <a href="https://www.facebook.com/Excelssss" target="_blank" class="block bg-blue-500 text-white p-2 rounded-r hover:bg-red-600 transition">Facebook Page</a>
+  <div class="floating-icons fixed flex flex-col space-y-2 z-50">
+    <a href="https://www.tiktok.com/@exceleasyyy" target="_blank" class="block bg-pink-500 text-white p-2 rounded hover:bg-pink-600 transition">TikTok</a>
+    <a href="https://www.youtube.com/@exceleasyyy" target="_blank" class="block bg-red-500 text-white p-2 rounded hover:bg-red-600 transition">YouTube</a>
   </div>
 
   <!-- Navigation Bar -->
@@ -96,7 +115,7 @@
   <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center py-16 px-4">
     <img src="1740697918775.jpg" alt="Profile Photo" class="mx-auto rounded-full border-4 border-white mb-4 w-32 h-32 object-cover shadow-lg">
     <h1 class="text-4xl font-extrabold">Julius Brandiz Santos</h1>
-    <p class="text-lg mt-2" id="typing-subtitle">IT Graduate • Excel Expert • Data Specialist</p>
+    <p class="text-lg mt-2">IT Graduate • Excel Expert • Data Specialist</p>
     <a href="https://drive.google.com/file/d/1y-eDC-xu9muArCM-R1hD6crPuJoIYcJ9/view?usp=drive_link" target="_blank" class="mt-4 inline-block bg-white text-blue-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-blue-100 transition">
       📄 Download Resume
     </a>
@@ -133,15 +152,9 @@
   <section id="portfolio" class="py-16 px-6 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-10 text-center">📹 Featured Tutorials</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491018028658822417" data-video-id="7491018028658822417" style="max-width: 100%;">
-        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
-      </blockquote>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491017148291206401" data-video-id="7491017148291206401" style="max-width: 100%;">
-        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
-      </blockquote>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491019462435441937" data-video-id="7491019462435441937" style="max-width: 100%;">
-        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
-      </blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491018028658822417" data-video-id="7491018028658822417"></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491017148291206401" data-video-id="7491017148291206401"></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491019462435441937" data-video-id="7491019462435441937"></blockquote>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
   </section>

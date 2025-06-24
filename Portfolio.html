@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julius Brandiz Santos | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #1e293b;
+      color: #f1f5f9;
+    }
+    .dark-mode header,
+    .dark-mode section,
+    .dark-mode footer {
+      background-color: #1e293b;
+    }
+    .dark-mode a {
+      color: #93c5fd;
+    }
+  </style>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("nav a");
+      const sections = document.querySelectorAll("section");
+      const backToTop = document.getElementById("backToTop");
+      const toggleDark = document.getElementById("darkToggle");
+      const body = document.body;
+
+      toggleDark.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+      });
+
+      window.addEventListener("scroll", () => {
+        const fromTop = window.scrollY + 100;
+        links.forEach(link => {
+          const section = document.querySelector(link.getAttribute("href"));
+          if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+            link.classList.add("text-blue-600", "font-semibold");
+          } else {
+            link.classList.remove("text-blue-600", "font-semibold");
+          }
+        });
+        backToTop.classList.toggle("hidden", window.scrollY < 300);
+      });
+
+      ScrollReveal().reveal('section', {
+        delay: 100,
+        distance: '20px',
+        duration: 800,
+        easing: 'ease-out',
+        origin: 'bottom',
+        reset: false
+      });
+    });
+  </script>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Floating Social Icons -->
+  <div class="fixed top-1/2 left-0 transform -translate-y-1/2 space-y-2 z-50">
+    <a href="https://www.tiktok.com/@exceleasyyy" target="_blank" class="block bg-pink-500 text-white p-2 rounded-r hover:bg-pink-600 transition">TikTok</a>
+    <a href="https://www.youtube.com/@exceleasyyy" target="_blank" class="block bg-red-500 text-white p-2 rounded-r hover:bg-red-600 transition">YouTube</a>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <button id="darkToggle" class="text-gray-700 hover:text-blue-600">🌓</button>
+        <button class="md:hidden text-blue-700 focus:outline-none" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+          ☰
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+        <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Services</a>
+        <a href="#portfolio" class="text-gray-700 hover:text-blue-600 transition">Portfolio</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+      </nav>
+    </div>
+    <div id="mobileMenu" class="md:hidden px-4 pb-4 hidden">
+      <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+      <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+      <a href="#portfolio" class="block py-2 text-gray-700 hover:text-blue-600">Portfolio</a>
+      <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center py-16 px-4">
+    <img src="1740697918775.jpg" alt="Profile Photo" class="mx-auto rounded-full border-4 border-white mb-4 w-32 h-32 object-cover shadow-lg">
+    <h1 class="text-4xl font-extrabold">Julius Brandiz Santos</h1>
+    <p class="text-lg mt-2" id="typing-subtitle">IT Graduate • Excel Expert • Data Specialist</p>
+    <a href="https://drive.google.com/file/d/1y-eDC-xu9muArCM-R1hD6crPuJoIYcJ9/view?usp=drive_link" target="_blank" class="mt-4 inline-block bg-white text-blue-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-blue-100 transition">
+      📄 Download Resume
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">👨‍💻 About Me</h2>
+    <p class="text-lg max-w-2xl mx-auto">
+      I'm an IT graduate who specializes in data entry, Excel automation, basic web development, and client services like creating professional resumes, CVs, and cover letters. I also create short, helpful tutorials on TikTok and YouTube.
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-blue-50 py-16 px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center">🛠 Services I Offer</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+        <h3 class="font-bold text-xl mb-2">📊 Excel & Data Entry</h3>
+        <p>Automation, formatting, data cleanup, and spreadsheet creation.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+        <h3 class="font-bold text-xl mb-2">📝 Resume Writing</h3>
+        <p>Custom CVs, resumes, and cover letters that help clients stand out.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+        <h3 class="font-bold text-xl mb-2">🌐 Web Development</h3>
+        <p>Simple websites using HTML, CSS, and basic responsive design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-16 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold mb-10 text-center">📹 Featured Tutorials</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491018028658822417" data-video-id="7491018028658822417" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491017148291206401" data-video-id="7491017148291206401" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491019462435441937" data-video-id="7491019462435441937" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
+    </div>
+    <script async src="https://www.tiktok.com/embed.js"></script>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-blue-50 py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">📬 Let's Connect</h2>
+    <p class="text-lg mb-4">Send me a message below and I’ll get back to you.</p>
+    <form action="https://formsubmit.co/brandizsantos82@gmail.com" method="POST" class="max-w-xl mx-auto space-y-4">
+      <input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-2 border rounded" />
+      <input type="email" name="email" required placeholder="Your Email" class="w-full px-4 py-2 border rounded" />
+      <textarea name="message" required placeholder="Your Message" rows="4" class="w-full px-4 py-2 border rounded"></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 hidden bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition">
+    ⬆️ Top
+  </button>
+
+  <!-- Footer -->
+  <footer class="text-center text-white bg-blue-700 py-4">
+    &copy; 2025 Julius Brandiz Santos. Built with ❤️ Mae De Jesus Ramirez
+  </footer>
+</body>
+</html>

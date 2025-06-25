@@ -34,20 +34,37 @@
       background-color: #334155;
       border-color: #475569;
     }
+    .dark-mode input::placeholder,
+    .dark-mode textarea::placeholder {
+      color: #cbd5e1;
+    }
     @media (max-width: 768px) {
       .floating-icons {
-        top: auto;
-        bottom: 20px;
+        bottom: 80px;
         left: 10px;
-        transform: none;
         flex-direction: column;
+        z-index: 30;
       }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animated-section {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      will-change: transform, opacity;
+    }
+    .animated-section:hover {
+      transform: translateY(-5px);
+      opacity: 0.95;
     }
   </style>
   <script defer>
     document.addEventListener("DOMContentLoaded", () => {
       const links = document.querySelectorAll("nav a");
-      const sections = document.querySelectorAll("section");
       const backToTop = document.getElementById("backToTop");
       const toggleDark = document.getElementById("darkToggle");
       const body = document.body;
@@ -66,7 +83,7 @@
             link.classList.remove("text-blue-600", "font-semibold");
           }
         });
-        backToTop.classList.toggle("hidden", window.scrollY < 300);
+        if (backToTop) backToTop.classList.toggle("hidden", window.scrollY < 300);
       });
 
       ScrollReveal().reveal('section', {
@@ -82,17 +99,17 @@
 </head>
 <body class="bg-white text-gray-800">
   <!-- Floating Social Icons -->
-  <div class="floating-icons fixed flex flex-col space-y-2 z-50">
-    <a href="https://www.tiktok.com/@exceleasyyy" target="_blank" class="block bg-space grey-500 text-white p-2 rounded hover:bg-pink-600 transition">TikTok</a>
-    <a href="https://www.facebook.com/Excelssss" target="_blank" class="block bg-blue-500 text-white p-2 rounded hover:bg-red-600 transition">Facebook</a>
+  <div class="floating-icons fixed top-1/2 left-0 transform -translate-y-1/2 flex flex-col space-y-2 z-40">
+    <a href="https://www.tiktok.com/@exceleasyyy" target="_blank" class="block bg-pink-500 text-white p-2 rounded-r-full shadow hover:bg-pink-600 transition duration-300">TikTok</a>
+    <a href="https://www.facebook.com/Excelssss" target="_blank" class="block bg-blue-500 text-white p-2 rounded-r-full shadow hover:bg-blue-600 transition duration-300">Facebook</a>
   </div>
 
   <!-- Navigation Bar -->
-  <header class="bg-white shadow sticky top-0 z-50">
+  <header class="bg-white shadow sticky top-0 z-50 fade-in">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-4">
-        <button id="darkToggle" class="text-gray-700 hover:text-blue-600">🌓</button>
-        <button class="md:hidden text-blue-700 focus:outline-none" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <button id="darkToggle" class="text-gray-700 hover:text-blue-600 text-xl">🌓</button>
+        <button class="md:hidden text-blue-700 text-2xl focus:outline-none" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
           ☰
         </button>
       </div>
@@ -133,15 +150,15 @@
   <section id="services" class="bg-blue-50 py-16 px-6">
     <h2 class="text-3xl font-bold mb-10 text-center">🛠 Services I Offer</h2>
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center animated-section">
         <h3 class="font-bold text-xl mb-2">📊 Excel & Data Entry</h3>
         <p>Automation, formatting, data cleanup, and spreadsheet creation.</p>
       </div>
-      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center animated-section">
         <h3 class="font-bold text-xl mb-2">📝 Resume Writing</h3>
         <p>Custom CVs, resumes, and cover letters that help clients stand out.</p>
       </div>
-      <div class="bg-white shadow-lg rounded-xl p-6 text-center hover:scale-105 transition-transform">
+      <div class="bg-white shadow-lg rounded-xl p-6 text-center animated-section">
         <h3 class="font-bold text-xl mb-2">🌐 Web Development</h3>
         <p>Simple websites using HTML, CSS, and basic responsive design.</p>
       </div>
@@ -152,9 +169,15 @@
   <section id="portfolio" class="py-16 px-6 max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold mb-10 text-center">📹 Featured Tutorials</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491018028658822417" data-video-id="7491018028658822417"></blockquote>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491017148291206401" data-video-id="7491017148291206401"></blockquote>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491019462435441937" data-video-id="7491019462435441937"></blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491018028658822417" data-video-id="7491018028658822417" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491017148291206401" data-video-id="7491017148291206401" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@exceleasyyy/video/7491019462435441937" data-video-id="7491019462435441937" style="max-width: 100%;">
+        <section><a target="_blank" title="@exceleasyyy" href="https://www.tiktok.com/@exceleasyyy">@exceleasyyy</a></section>
+      </blockquote>
     </div>
     <script async src="https://www.tiktok.com/embed.js"></script>
   </section>
